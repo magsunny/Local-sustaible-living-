@@ -8,7 +8,7 @@ import Mobilität from './Pages/Mobilität';
 import Ernährung from './Pages/Ernährung';
 import Wohnen from './Pages/Wohnen';
 
-
+import Footer from "./components/footer/Footer";
 
 
 
@@ -17,6 +17,7 @@ function App() {
  
   return (
     <>
+    
     <BrowserRouter>
    
       <Navbar />
@@ -29,6 +30,10 @@ function App() {
         <Route path='/ernährung' element={<Ernährung/>}/>
         </Routes>
      </BrowserRouter>
+     <div>
+      
+      <Footer />
+    </div>
      </>
   );
 }
