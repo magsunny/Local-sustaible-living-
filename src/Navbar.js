@@ -1,12 +1,15 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Disclosure } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
+import UserNavbar from './UserNavbar';
+import {useState } from 'react';
+import LoginForm from './LoginForm';
+
 
 const navigation = [
 
-  { name: 'Home', href: '/', current: true},
-  { name: 'Ernährung', href: '/ernährung', current: false},
+  { name: 'Home', href: '/', current: true },
+  { name: 'Ernährung', href: '/ernährung', current: false },
   { name: 'Fashion', href: '/fashion', current: false },
   { name: 'Mobilität', href: '/mobilität', current: false },
   { name: 'Wohnen', href: '/wohnen', current: false },
@@ -16,7 +19,15 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+export default function Navbar (props) {
+
+
+  const [isLogin, setLogin] = useState(false);
+
+  const isLoggedIn = () => {
+    setLogin(!isLogin);
+  }
+
   return (
     <Disclosure as="nav" className="bg-emerald-200">
       {({ open }) => (
@@ -46,7 +57,6 @@ export default function Navbar() {
                           item.current ? 'bg-emerald-900 text-white' : 'text-black-300 hover:bg-emerald-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
-                        
                       >
                         {item.name}
                       </Link>
@@ -55,22 +65,11 @@ export default function Navbar() {
                 </div>
               </div>
 
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
-                {/* community dropdown menu */}
-                <Menu as="div" className="hidden sm:ml-6 sm:block">
-                  <div className=" flex space-x-4">
+               {/* Login menu */}
+              <UserNavbar 
+               handleClose={isLoggedIn}
+              />
 
-                    <Menu.Button className="inline-flex items-center justify-center rounded-md text-sm text-white bg-gradient-to-r from-emerald-500 to-blue-500 focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-2">
-                      <span className="px-3 py-2 text-sm font-semibold hover:rounded-md hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Login</span>
-                    </Menu.Button>
-
-                    <Menu.Button className="inline-flex items-center justify-center rounded-md text-sm text-white bg-gradient-to-r from-emerald-500 to-blue-500 focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-2 ">
-                      <span className="px-3 py-2 text-sm font-semibold hover:rounded-md hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Registrieren</span>  
-                    </Menu.Button>
-
-                  </div>
-                </Menu>
-              </div>
             </div>
           </div>
 
@@ -98,3 +97,4 @@ export default function Navbar() {
     </Disclosure>
   )
 }
+
