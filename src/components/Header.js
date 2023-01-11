@@ -9,7 +9,7 @@ function Header () {
       
       <div className='text-white color: rgb(255 255 255); text-6xl tracking-wide font-style: italic ;' > <div className='align-middle h-full; '><h1>Nachhaltiger Leben</h1> </div>
 
-       <div><h2>dein Einstieg leicht gemacht!</h2> </div></div>
+      <br></br> <div><h2>dein Einstieg leicht gemacht!</h2> </div></div>
 
 </div>
 
