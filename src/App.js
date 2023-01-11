@@ -10,6 +10,7 @@ import Wohnen from './Pages/Wohnen';
 
 import Footer from "./components/footer/Footer";
 
+import Header from './components/Header';
 
 
 
@@ -21,6 +22,11 @@ function App() {
     <BrowserRouter>
    
       <Navbar />
+   
+      <Header />
+
+      </>
+
   
       <Routes>
         <Route path='/' element={<Home/>}/> 
@@ -35,6 +41,7 @@ function App() {
       <Footer />
     </div>
      </>
+
   );
 }
 export default App;
