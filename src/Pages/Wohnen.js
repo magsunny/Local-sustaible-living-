@@ -3,12 +3,12 @@ import {Container} from '../components/Container'
 
 const texte =[
   {id:'1',
-title:'blabla',
-text:'siebenacht' },
+title:'Hier Überschrift eins',
+text:'Lorem ipsum dolor sit amet, consetetur sadipscing elitr' },
 
 {id:'2',
-title:'bhuhu',
-text:'neunzehn' }
+title:'und hier die zweite Überschrift',
+text:'Lorem ipsum dolor sit amet, consetetur sadipscing elitr' }
 ]
 
 const Wohnen = () => {
