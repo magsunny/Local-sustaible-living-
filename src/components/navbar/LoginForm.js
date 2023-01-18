@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Button from "../Button";
 import './LoginFormTransition.css';
 
 
@@ -32,9 +33,12 @@ useEffect(() => {
   return (
 
    <div className="relative flex justify-center items-center">
-    <button type="button" onClick={toggleLoginForm} className="z-20 inline-flex items-center justify-center rounded-md text-sm text-white bg-gradient-to-r from-emerald-500 to-blue-500 focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1 ">
-      <span className="px-3 py-2 text-sm font-semibold hover:rounded-md hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Login</span>  
-    </button>
+
+    <Button
+        type={'button'}
+        onClick={toggleLoginForm}
+        label={'Login'}
+    />
 
     <div 
       ref={loginFormRef} 
@@ -84,16 +88,15 @@ useEffect(() => {
             </div>
 
             <div>
-              <button 
-                  type="submit"
-                  onClick={() => {
-                    toggleLoginForm()
-                    props.isLoggedIn()
-                  }}
-                  className="m-auto inline-flex items-center justify-center rounded-md text-sm text-white bg-gradient-to-r from-emerald-500 to-blue-500 focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1 "
-              >
-                  <span className="px-3 py-2 text-sm font-semibold hover:rounded-md hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Login</span>  
-              </button>
+
+              <Button
+                type={'submit'}
+                onClick={() => {
+                  toggleLoginForm()
+                  props.isLoggedIn()
+                }}
+                label={'Login'}
+              />
 
               <div className="text-sm text-gray-600 mb-4 mt-2">
                   <span 
