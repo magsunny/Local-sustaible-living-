@@ -1,6 +1,6 @@
-
 import { useState, useEffect, useRef } from 'react';
 import './LoginFormTransition.css';
+import Button from '../Button';
 
 export default function Registration() {
 
@@ -35,12 +35,11 @@ useEffect(() => {
 
     <div className="relative flex justify-center items-center">
 
-      <button 
-        className="inline-flex items-center justify-center rounded-md z-20 text-sm text-white bg-gradient-to-r from-emerald-500 to-blue-500 focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1 "
-        onClick={toggleRegisterForm}
-      >
-        <span className="px-3 py-2 text-sm font-semibold hover:rounded-md hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Registrieren</span>  
-      </button>
+        <Button
+            type={'button'}
+            onClick={toggleRegisterForm}
+            label={'Registrieren'}
+        />
 
         <div 
             ref={registerFormRef} 
@@ -132,13 +131,12 @@ useEffect(() => {
                                 />
                         </div>
                         <div className="flex flex-col items-center justify-center mt-4">
-                        <button 
-                            className="inline-flex items-center justify-center rounded-md z-20 text-sm text-white bg-gradient-to-r from-emerald-500 to-blue-500 focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1 "
+
+                        <Button 
+                            type={'submit'}
                             onClick={toggleRegisterForm}
-                            type="submit"
-                        >
-                            <span className="px-3 py-2 text-sm font-semibold hover:rounded-md hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Registrieren</span>  
-                        </button>
+                            label={'Registrieren'}
+                        />
 
                             <div className="flex flex-col items-center justify-center text-sm text-gray-600 mb-4 mt-2">
                                 <span 
