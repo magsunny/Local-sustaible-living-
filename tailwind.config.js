@@ -4,9 +4,13 @@ module.exports = {
     ],
   theme: {
     extend: {
+
       scale:{
         '300':'3',
       }
+
+      
+
     },
   },
   plugins: [],

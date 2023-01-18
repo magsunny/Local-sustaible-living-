@@ -1,15 +1,13 @@
 import {React} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import Navbar from './Navbar'; 
+import Navbar from './components/navbar/Navbar'; 
 import Home from './Pages/Home';
 import Fashion from './Pages/Fashion';
 import Mobilität from './Pages/Mobilität';
 import Ernährung from './Pages/Ernährung';
 import Wohnen from './Pages/Wohnen';
-
 import Footer from "./components/footer/Footer";
-
 import Header from './components/Header';
 
 
@@ -24,8 +22,6 @@ function App() {
       <Navbar />
    
       <Header />
-
-
   
       <Routes>
         <Route path='/' element={<Home/>}/> 
