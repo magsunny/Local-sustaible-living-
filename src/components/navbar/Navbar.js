@@ -3,7 +3,6 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import UserNavbar from './UserNavbar';
 import {useState } from 'react';
-import LoginForm from './LoginForm';
 
 
 const navigation = [
@@ -67,7 +66,8 @@ export default function Navbar (props) {
 
                {/* Login menu */}
               <UserNavbar 
-               handleClose={isLoggedIn}
+               isLoggedIn={isLoggedIn}
+               isLogin={isLogin}
               />
 
             </div>
