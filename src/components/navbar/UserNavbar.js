@@ -1,6 +1,6 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
-import LoginForm from './LoginForm'
+import LoginForm from './LoginForm.js'
+import RegisterForm from './RegisterForm';
 
 function UserNavbar(props) {
 
@@ -38,12 +38,10 @@ function UserNavbar(props) {
                 isLoggedIn={props.isLoggedIn}
               />
 
-              
-              <Link to="">
-                <button className="inline-flex items-center justify-center rounded-md text-sm text-white bg-gradient-to-r from-emerald-500 to-blue-500 focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1 ">
-                  <span className="px-3 py-2 text-sm font-semibold hover:rounded-md hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Registrieren</span>  
-                </button>
-              </Link>
+              <RegisterForm
+                isLogin={props.isLogin}
+                isLoggedIn={props.isLoggedIn}
+              />
 
           </div>
         );
