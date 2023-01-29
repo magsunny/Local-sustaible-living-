@@ -1,7 +1,7 @@
 const Ernährung = () => {
     return (
       
-            <h1> Ernährung page</h1>
+            <h1> Ernährung page test</h1>
        
     )
 };
