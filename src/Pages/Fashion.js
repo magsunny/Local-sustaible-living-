@@ -19,9 +19,9 @@ const Content = [
   href: "https://images.unsplash.com/photo-1543334270-24bb46642afe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3RyaWNrZW58ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
   alt: "Klamotten selber stricken.",
   title: "Selber machen statt shoppen",
-  text:"Stricken ist nicht nur gerade ein absoluter Trend, sondern hat auch einige Vorteile gegenüber dem konventionellen Shoppen! Es gibt mehrere Gründe, warum es nachhaltiger ist, etwas selbst zu stricken, statt neue Kleidung zu kaufen. Einige davon sind: Ressourcen: Wenn du etwas selbst strickst, verwendest du Materialien, die du bereits besitzt oder die leicht zu beschaffen sind. Dies reduziert den Bedarf an neuen Ressourcen, die für die Produktion von neuer Kleidung erforderlich sind. Energie: Die Herstellung von neuer Kleidung ist energieintensiv und erfordert den Einsatz von Maschinen und Anlagen. Wenn du etwas selbst strickst, verbrauchst du weniger Energie. Abfall: Wenn du etwas selbst strickst, produzierst du weniger Abfall, da du nicht unnötig Verpackungsmaterial und Transportwege in Anspruch nimmst. Nachhaltige Materialien: Wenn man selber strickt, hat man die Möglichkeit, auf nachhaltige Materialien zu setzen, wie z.B Bio-Baumwolle, Tencel, Recyclinggarn und andere. Individuell: Wenn man selber strickt, hat man die Möglichkeit, seine eigene Kleidung nach den eigenen Wünschen und Maßen herzustellen. Dadurch erhält man ein einzigartiges und individuelles Produkt. Zufriedenstellend: Stricken kann auch als eine Form der Entspannung und des Selbstbewusstseins angesehen werden, da man etwas mit seinen eigenen Händen schafft und es am Ende tragen kann.",
+  text:"Stricken ist nicht nur gerade ein absoluter Trend, sondern hat auch einige Vorteile gegenüber dem konventionellen Shoppen! Es gibt mehrere Gründe, warum es nachhaltiger ist, etwas selbst zu stricken, statt neue Kleidung zu kaufen. Einige davon sind:",
   listItem: [
-    'eins', 'zwei', 'drei'
+    'Ressourcen: Wenn du etwas selbst strickst, verwendest du Materialien, die du bereits besitzt oder die leicht zu beschaffen sind. Dies reduziert den Bedarf an neuen Ressourcen, die für die Produktion von neuer Kleidung erforderlich sind. ', 'Energie: Die Herstellung von neuer Kleidung ist energieintensiv und erfordert den Einsatz von Maschinen und Anlagen. Wenn du etwas selbst strickst, verbrauchst du weniger Energie. ', 'Abfall: Wenn du etwas selbst strickst, produzierst du weniger Abfall, da du nicht unnötig Verpackungsmaterial und Transportwege in Anspruch nimmst. ', 'Nachhaltige Materialien: Wenn man selber strickt, hat man die Möglichkeit, auf nachhaltige Materialien zu setzen, wie z.B Bio-Baumwolle, Tencel, Recyclinggarn und andere.', 'Individuell: Wenn man selber strickt, hat man die Möglichkeit, seine eigene Kleidung nach den eigenen Wünschen und Maßen herzustellen. Dadurch erhält man ein einzigartiges und individuelles Produkt. ', 'Zufriedenstellend: Stricken kann auch als eine Form der Entspannung und des Selbstbewusstseins angesehen werden, da man etwas mit seinen eigenen Händen schafft und es am Ende tragen kann.', 
   ]
 },
 {
@@ -29,9 +29,9 @@ const Content = [
   href: "https://images.unsplash.com/photo-1603001088226-17762b4ea534?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c3VzdGFpbmFibGUlMjBmYXNoaW9ufGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
   alt: "Nachhaltige Mode.",
   title: "Second Hand shoppen",
-  text: "Second Hand Shopping,also das Kaufen von gebrauchter Kleidung, kann eine nachhaltigere Alternative zum Kauf von neuer Kleidung sein, weil es einige Vorteile hat: Ressourcen: Wenn man gebrauchte Kleidung kauft, nutzt man bereits vorhandene Ressourcen, anstatt neue Ressourcen für die Produktion von neuer Kleidung zu verbrauchen. Abfall: Second Hand Shopping reduziert die Menge an Abfall, die durch die Wegwerfkultur entsteht, da es dazu beiträgt, dass Kleidung länger genutzt wird, anstatt sie wegzuwerfen. Energie: Der Transport und die Produktion von gebrauchter Kleidung ist weniger energieintensiv, als die Herstellung von neuer Kleidung. Kosteneffizienz: Gebrauchte Kleidung ist in der Regel günstiger als neue Kleidung, und es kann manchmal sogar besondere oder seltene Stücke finden. Sozial und ethisch: Second Hand Shopping unterstützt oft lokale und kleine Geschäfte, die nachhaltige Praktiken und ethisch arbeitende Lieferketten unterstützen. Unikat: Gebrauchte Kleidung hat oft eine Geschichte und kann dadurch besonders und individuell sein. Reduziert die Nachfrage nach neuer Produktion: Second Hand Shopping hilft dabei, die Nachfrage nach neu produzierter Kleidung zu reduzieren und dadurch auch die negative Auswirkungen auf die Umwelt und die Arbeitsbedingungen in der Produktion.",
+  text: "Second Hand Shopping,also das Kaufen von gebrauchter Kleidung, kann eine nachhaltigere Alternative zum Kauf von neuer Kleidung sein, weil es einige Vorteile hat:",
   listItem: [
-    'one', 'two', 'tree', 'four', 'five'
+    'Ressourcen: Wenn man gebrauchte Kleidung kauft, nutzt man bereits vorhandene Ressourcen, anstatt neue Ressourcen für die Produktion von neuer Kleidung zu verbrauchen. ', 'Abfall: Second Hand Shopping reduziert die Menge an Abfall, die durch die Wegwerfkultur entsteht, da es dazu beiträgt, dass Kleidung länger genutzt wird, anstatt sie wegzuwerfen. ', 'Energie: Der Transport und die Produktion von gebrauchter Kleidung ist weniger energieintensiv, als die Herstellung von neuer Kleidung. ', 'Kosteneffizienz: Gebrauchte Kleidung ist in der Regel günstiger als neue Kleidung.', 'Sozial und ethisch: Second Hand Shopping unterstützt oft lokale und kleine Geschäfte, die nachhaltige Praktiken und ethisch arbeitende Lieferketten unterstützen.', 'Unikat: Gebrauchte Kleidung hat oft eine Geschichte und kann dadurch besonders und individuell sein.', 'Reduziert die Nachfrage nach neuer Produktion: Second Hand Shopping hilft dabei, die Nachfrage nach neu produzierter Kleidung zu reduzieren und dadurch auch die negative Auswirkungen auf die Umwelt und die Arbeitsbedingungen in der Produktion.', 
   ]
 },
 
@@ -52,10 +52,9 @@ const Fashion = () => {
                   {Content.map((item)=>(
                     <div className="border-t border-gray-200 pt-4 flex flex-col justify-between">
                       <div><dt className="font-medium text-gray-900">{item.title}</dt></div>
-                      <div><dd className="mt-2 text-sm text-gray-500 hover:text-gray-700 visited:text-gray-300"><a href ='https://www.hamburg.de/fahrradfahren-in-hamburg/16219442/radnetze/'target='_blank' rel="noreferrer">{item.text}</a></dd></div>
                       {item.listItem?.map((element) => (
                         <div>
-                          <p className='mt-5'>{element}</p>
+                          <p className='mt-5 text-gray-500'>{element}</p>
                         </div>
                       ))}
                       <div><img src={item.href} alt={item.alt} className="rounded-lg bg-gray-100 w-full h-80 object-cover mt-16"/></div>
