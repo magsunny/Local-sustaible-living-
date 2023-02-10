@@ -1,15 +1,22 @@
 import { useState, useEffect, useRef } from 'react';
 import './LoginFormTransition.css';
 import Button from '../Button';
+import axios from 'axios';
 
 export default function Registration() {
 
 const registerFormRef = useRef(null);
+
 const [isOpenRegisterForm, setOpenRegisterForm] = useState(false);
+const [username, setUsername] = useState("");
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [register, setRegister] = useState(false);
 
 const toggleRegisterForm = () => {
     setOpenRegisterForm(!isOpenRegisterForm);
-  }
+    setRegister(false);
+  } 
 
 useEffect(() => {
 
@@ -30,6 +37,29 @@ useEffect(() => {
 
     }, [isOpenRegisterForm]
 );
+
+const handleSubmit = (e) => {
+    e.preventDefault() //prevents refreshing page
+    const configuration = {
+        method: 'post',
+        url: 'http://localhost:3000/register', //endpoint
+        data: { //data contains request body for backend
+            username,
+            email,
+            password,
+        },
+    };
+    axios(configuration) // calls API
+    .then((result) => {
+        setRegister(true);
+        setUsername('');
+        setEmail('');
+        setPassword('');
+    })
+    .catch((error) => {
+        error = new  Error();
+    })
+}; 
 
     return (
 
@@ -57,13 +87,16 @@ useEffect(() => {
                         className="mt-4 space-y-4" 
                         action="#" 
                         method="POST"
+                        onSubmit={handleSubmit}
                     >
-                        <div>
+
+                        {/* username */}
+                        <div className="mt-4">
                             <label
                                 htmlFor="name"
                                 className="block text-sm font-medium text-gray-700 undefined"
                             >
-                                Name
+                                Benutzername
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
@@ -74,9 +107,13 @@ useEffect(() => {
                                     required
                                     className="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-00 placeholder-gray-300 focus:z-10 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 focus:bg-emerald-100 sm:text-sm"
                                     placeholder="Mein Benutzername"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
                                 />
                             </div>
                         </div>
+
+                        {/* email */}
                         <div className="mt-4">
                             <label
                                 htmlFor="email"
@@ -93,9 +130,13 @@ useEffect(() => {
                                     required
                                     className="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-300 focus:z-10 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 focus:bg-emerald-100 sm:text-sm"
                                     placeholder="beispiel@email.de"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
                         </div>
+
+                        {/* password */}
                         <div className="mt-4">
                             <label
                                 htmlFor="password"
@@ -111,9 +152,13 @@ useEffect(() => {
                                     required
                                     className="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-300 focus:z-10 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 focus:bg-emerald-100 sm:text-sm"
                                     placeholder="Passwort"
+                                    value={password}
+                                    onChange={(e) => {setPassword(e.target.value)}}
                                 />
                         </div>
-                        <div className="mt-4">
+
+                        {/* reapet password */}
+                        {/* <div className="mt-4">
                             <label
                                 htmlFor="password_confirmation"
                                 className="block text-sm font-medium text-gray-700 undefined"
@@ -129,12 +174,22 @@ useEffect(() => {
                                     className="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-300 focus:z-10 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 focus:bg-emerald-100 sm:text-sm"
                                     placeholder="Passwort wiederholen"
                                 />
-                        </div>
-                        <div className="flex flex-col items-center justify-center mt-4">
+                        </div> */}
 
+                        {/* display successful registration message */}
+                        {register ? (
+                            <p>Registrierung erfolgreich!</p>
+                        ) : (
+                            <p></p>
+                        )}
+
+                        {/* Submit & Close Button */}
+                        <div className="flex flex-col items-center justify-center mt-4">
                         <Button 
                             type={'submit'}
-                            onClick={toggleRegisterForm}
+                            onClick={() => {
+                                // toggleRegisterForm();
+                                handleSubmit()}}
                             label={'Registrieren'}
                         />
 
