@@ -157,25 +157,6 @@ const handleSubmit = (e) => {
                                 />
                         </div>
 
-                        {/* reapet password */}
-                        {/* <div className="mt-4">
-                            <label
-                                htmlFor="password_confirmation"
-                                className="block text-sm font-medium text-gray-700 undefined"
-                            >
-                                Passwort bestätigen
-                            </label>
-                            <input
-                                    id="password_confirmation"
-                                    name="password_confirmation"
-                                    type="password_confirmation"
-                                    autoComplete="password_confirmation"
-                                    required
-                                    className="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-300 focus:z-10 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 focus:bg-emerald-100 sm:text-sm"
-                                    placeholder="Passwort wiederholen"
-                                />
-                        </div> */}
-
                         {/* display successful registration message */}
                         {register ? (
                             <p>Registrierung erfolgreich!</p>
