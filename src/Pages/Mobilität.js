@@ -54,7 +54,7 @@ const Mobilität = () => {
                   {Content.map((item)=>(
                     <div className="border-t border-gray-200 pt-4 flex flex-col justify-between">
                       <div><dt className="font-medium text-gray-900">{item.title}</dt></div>
-                      <div><dd className="mt-2 text-sm text-gray-500 hover:text-gray-700 visited:text-gray-300"><a href ='https://www.hamburg.de/fahrradfahren-in-hamburg/16219442/radnetze/'target='_blank' rel="noreferrer">{item.text}</a></dd></div>
+                      <div><dd className="mt-2 text-sm text-gray-500">{item.text}</dd></div>
                       {item.listItem?.map((element) => (
                         <div>
                           <p className='mt-5'>{element}</p>
