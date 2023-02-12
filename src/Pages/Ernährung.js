@@ -35,21 +35,21 @@ const Content = [{
 ]
 
 const Ernährung = () => {
-    return (
-        <>
+  
+  return (
+     <>
         <div>
           <div className="bg-white">
             <div className="mx-auto grid grid-cols-1 items-center gap-y-16 gap-x-8 px-4 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8 lg:grid-cols-1">
               <div>
-                <h1> Ernährung </h1>
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Tipps für eine nachhaltige Ernährung</h2>
-                <p className="mt-4 text-gray-500">Zur nachhaltigen Ernährung gehört nicht nur die Frage was man isst, sondern auch der Umgang mit Lebensmitteln.</p>
+                <p className="mt-4 text-gray-500">Zur nachhaltigen Ernährung gehört nicht nur die Frage was man isst.<br></br><br></br>Ökologisch nachhaltig zu essen bedeutet, sich mit Mahlzeiten aus überwiegend pflanzlichen Lebensmitteln zu ernähren. Eine solche Ernährungsweise besteht aus ökologisch, regional, saisonal und fair produzierten Lebensmitteln mit geringem Verarbeitungsgrad. Langfristig lassen sich so die weltweiten Lebens- und Umweltbedingungen verbessern und mehr globale Gerechtigkeit erreichen.Individuelle Verhaltensänderungen sind auf dem Weg zu einer nachhaltigen Ernährung wichtig und nötig.<br></br><br></br>Unsere Ernährung und wie wir mit Lebensmitteln umgehen, haben grossen Einfluss auf die Umwelt – lokal wie global, heute wie morgen. Eine nachhaltige Ernährung ist umweltfreundlich, gesund sowie wirtschaftlich tragbar und für alle zugänglich. Der Ernährungsstil beeinflusst nicht nur das eigene Wohlbefinden und die eigene Gesundheit. Auch die Art und Weise, wie Lebensmittel produziert, wo und wie sie eingekauft werden, wirkt sich vielfältig auf Umwelt und Gesellschaft aus. Eine wichtige Rolle spielt dabei, welche Inhaltsstoffe und Zutaten Lebensmittel enthalten und wieviel davon konsumiert wird. Lebensmittel sollten nicht verschwendet werden, da ihre Herstellung, Lagerung, Kühlung und Transport Ressourcen verbraucht. Wir haben die wichtigsten Tipps zusammengefasst:</p>
                 <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
 
                 {Content.map((item,id)=>(
                   <div className="border-t border-gray-200 pt-4">
                     <dt className="font-medium text-gray-900">{item.title}</dt>
-                    <dd className="mt-2 text-sm text-gray-500 hover:text-gray-700 visited:text-gray-300 h-80 sm:h-96"><a target='_blank' rel="noreferrer"> {item.text} </a></dd>
+                    <dd className="mt-2 text-sm text-gray-500 h-80 sm:h-96"><> {item.text} </></dd>
                     <img src={item.href} alt={item.alt} className="rounded-lg bg-gray-100 w-full h-80 object-cover mt-16"/>
                   </div>
                 ))}
@@ -60,6 +60,6 @@ const Ernährung = () => {
           </div>
         </div> 
       </>  
-    )
+  )
 };
 export default Ernährung;
