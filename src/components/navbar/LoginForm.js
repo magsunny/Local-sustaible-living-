@@ -5,12 +5,19 @@ import './LoginFormTransition.css';
 
 const LoginForm = (props) => {
 
-const loginFormRef = useRef(null);
+// use state for input field content
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [login, setLogin] = useState(false);
+
+// set pop up active or innactive
 const [isOpenLoginForm, setOpenLoginForm] = useState(false);
 const toggleLoginForm = () => {
     setOpenLoginForm(!isOpenLoginForm);
   }
 
+// close active popup when clicking outside popup
+const loginFormRef = useRef(null);
 useEffect(() => {
 
   const pageClickEvent = (e) => {
@@ -34,12 +41,14 @@ useEffect(() => {
 
    <div className="relative flex justify-center items-center">
 
+    {/* button to open login popup */}
     <Button
         type={'button'}
         onClick={toggleLoginForm}
         label={'Login'}
     />
 
+    {/* making popup visible with css */}
     <div 
       ref={loginFormRef} 
       className={`px-4 absolute rigth-0 top-16 w-80 flex min-h-full items-center justify-center z-10 bg-slate-100 text-center rounded-xl shadow-xl
@@ -54,9 +63,13 @@ useEffect(() => {
               Noch keinen Account? Registrieren
             </span>
         </div>
+
+        {/* login form */}
           <form className="mt-0 space-y-6" action="#" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="-space-y-px rounded-md shadow-sm">
+
+            {/* mail adress */}
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   E-mail Adresse
@@ -69,8 +82,12 @@ useEffect(() => {
                   required
                   className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-300 focus:z-10 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 focus:bg-emerald-100 sm:text-sm"
                   placeholder="E-mail Adresse"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
+
+              {/* enter password */}
               <div>
                 <label htmlFor="password" className="sr-only">
                   Password
@@ -83,12 +100,14 @@ useEffect(() => {
                   required
                   className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-300 focus:z-10 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 focus:bg-emerald-100 sm:text-sm"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
-
             <div>
 
+              {/* Login Button */}
               <Button
                 type={'submit'}
                 onClick={() => {
@@ -98,6 +117,7 @@ useEffect(() => {
                 label={'Login'}
               />
 
+              {/* close button */}
               <div className="text-sm text-gray-600 mb-4 mt-2">
                   <span 
                     onClick={toggleLoginForm}
@@ -113,6 +133,8 @@ useEffect(() => {
           </form>
         </div>
       </div>
+
+      {/* blur background when active popup */}
       <div className={`${isOpenLoginForm ? 'fixed top-0 left-0 w-screen h-screen backdrop-blur-sm z-5' : ''}`}>
     </div>
   </div>
