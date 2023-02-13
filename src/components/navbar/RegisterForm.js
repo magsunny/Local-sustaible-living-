@@ -5,19 +5,20 @@ import axios from 'axios';
 
 export default function Registration() {
 
-
-
 // use state for input field content
 const [isOpenRegisterForm, setOpenRegisterForm] = useState(false);
-const [username, setUsername] = useState("");
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
+const [username, setUsername] = useState('');
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
 const [register, setRegister] = useState(false);
 
 // set pop up active or innactive
 const toggleRegisterForm = () => {
     setOpenRegisterForm(!isOpenRegisterForm);
     setRegister(false);
+    setUsername(''); // resets input fields to empty when closing popup
+    setEmail('');
+    setPassword('');
   } 
 
 // close active popup when clicking outside popup
@@ -42,22 +43,22 @@ useEffect(() => {
     }, [isOpenRegisterForm]
 );
 
-// sends information to server on clicking submit button
+// sends information to server on clicking submit button or enter
 const handleSubmit = (e) => {
     e.preventDefault() //prevents refreshing page
     const configuration = {
         method: 'post',
         url: 'http://localhost:3000/register', //endpoint
-        data: { //data contains request body for backend
+        data: { // data contains request body for backend
             username,
             email,
             password,
         },
     };
     axios(configuration) // calls API
-    .then((result) => { //resets input fields to empty strings
-        setRegister(true);
-        setUsername('');
+    .then((result) => { 
+        setRegister(true); 
+        setUsername(''); //resets input fields to empty strings
         setEmail('');
         setPassword('');
     })
@@ -93,7 +94,6 @@ const handleSubmit = (e) => {
                     {/* register form */}
                     <form 
                         className="mt-4 space-y-4" 
-                        action="#" 
                         method="POST"
                         onSubmit={handleSubmit}
                     >
