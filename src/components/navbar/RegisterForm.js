@@ -3,7 +3,7 @@ import './LoginFormTransition.css';
 import Button from '../Button';
 import axios from 'axios';
 
-export default function Registration() {
+export default function RegisterForm() {
 
 // use state for input field content
 const [isOpenRegisterForm, setOpenRegisterForm] = useState(false);
