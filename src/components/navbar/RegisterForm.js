@@ -5,19 +5,23 @@ import axios from 'axios';
 
 export default function Registration() {
 
-const registerFormRef = useRef(null);
 
+
+// use state for input field content
 const [isOpenRegisterForm, setOpenRegisterForm] = useState(false);
 const [username, setUsername] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 const [register, setRegister] = useState(false);
 
+// set pop up active or innactive
 const toggleRegisterForm = () => {
     setOpenRegisterForm(!isOpenRegisterForm);
     setRegister(false);
   } 
 
+// close active popup when clicking outside popup
+const registerFormRef = useRef(null);
 useEffect(() => {
 
   const pageClickEvent = (e) => {
@@ -38,6 +42,7 @@ useEffect(() => {
     }, [isOpenRegisterForm]
 );
 
+// sends information to server on clicking submit button
 const handleSubmit = (e) => {
     e.preventDefault() //prevents refreshing page
     const configuration = {
@@ -50,7 +55,7 @@ const handleSubmit = (e) => {
         },
     };
     axios(configuration) // calls API
-    .then((result) => {
+    .then((result) => { //resets input fields to empty strings
         setRegister(true);
         setUsername('');
         setEmail('');
@@ -65,12 +70,14 @@ const handleSubmit = (e) => {
 
     <div className="relative flex justify-center items-center">
 
+        {/* button to open login popup */}
         <Button
             type={'button'}
             onClick={toggleRegisterForm}
             label={'Registrieren'}
         />
 
+        {/* making popup visible with css */}
         <div 
             ref={registerFormRef} 
             className={`px-4 absolute rigth-0 top-16 w-80 flex min-h-full items-center justify-center z-10 bg-slate-100 text-center rounded-xl shadow-xl
@@ -83,6 +90,7 @@ const handleSubmit = (e) => {
                     </h2>
                 </div>
                 
+                    {/* register form */}
                     <form 
                         className="mt-4 space-y-4" 
                         action="#" 
@@ -189,7 +197,8 @@ const handleSubmit = (e) => {
                     </form>
             </div>
         </div>
-
+        
+        {/* blur background when active popup */}
         <div className={`${isOpenRegisterForm ? 'fixed top-0 left-0 w-screen h-screen backdrop-blur-sm z-5' : ''}`}>
         </div>
 
