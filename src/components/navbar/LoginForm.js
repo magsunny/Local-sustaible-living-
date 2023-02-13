@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "../Button";
 import './LoginFormTransition.css';
+import axios from 'axios';
 
 
 const LoginForm = (props) => {
@@ -10,10 +11,35 @@ const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 const [login, setLogin] = useState(false);
 
+// sends information to server on clicking submit button or enter
+const handleSubmit = (e) => {
+  e.preventDefault(); // prevents refreshing whole page
+  const configuration = { //data contains request body for backend
+    method: 'post',
+    url: 'http://localhost:3000/login', // endpoint 
+    data: {
+      email,
+      password,
+    },
+  }
+  axios(configuration) // calls API
+    .then((result) => {
+      setLogin(true);
+      setEmail(''); // resets input fields to empty string
+      setPassword('');
+    })
+    .catch((error) => {
+      error = new Error();
+    })
+}
+
 // set pop up active or innactive
 const [isOpenLoginForm, setOpenLoginForm] = useState(false);
 const toggleLoginForm = () => {
     setOpenLoginForm(!isOpenLoginForm);
+    setEmail(''); // resets input fields to empty when closing popup
+    setPassword('');
+    setLogin(false);
   }
 
 // close active popup when clicking outside popup
@@ -65,8 +91,10 @@ useEffect(() => {
         </div>
 
         {/* login form */}
-          <form className="mt-0 space-y-6" action="#" method="POST">
-            <input type="hidden" name="remember" defaultValue="true" />
+          <form 
+            className="mt-0 space-y-6" 
+            method="POST"
+            onSubmit={handleSubmit}>
             <div className="-space-y-px rounded-md shadow-sm">
 
             {/* mail adress */}
@@ -105,14 +133,22 @@ useEffect(() => {
                 />
               </div>
             </div>
+
+            {/* display successful registration message */}
+            {login ? (
+              <p className="">Erfolgreich angemeldet</p>
+              ) : (
+                <p></p>
+            )}
             <div>
 
               {/* Login Button */}
               <Button
                 type={'submit'}
                 onClick={() => {
-                  toggleLoginForm()
-                  props.isLoggedIn()
+                  // toggleLoginForm()
+                  // props.isLoggedIn()
+                  handleSubmit()
                 }}
                 label={'Login'}
               />
