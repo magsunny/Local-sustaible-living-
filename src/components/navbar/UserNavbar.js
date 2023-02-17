@@ -10,7 +10,12 @@ function UserNavbar(props) {
 
   const token = cookies.get('TOKEN');
 
-     if (token) {
+  const logout = () => {
+    cookies.remove('TOKEN', { path: ''});
+    props.isLoggedIn(false);
+  }
+
+     if (props.isLogin === true) {
         return (
             <div className="flex space-x-4 flex-1 items-center justify-center sm:items-stretch sm:justify-end">
 
@@ -27,7 +32,7 @@ function UserNavbar(props) {
               <Link to="">
               <Button
                 type={'button'}
-                onClick={props.isLoggedIn}
+                onClick={logout}
                 label={'Logout'}
               />
               </Link>

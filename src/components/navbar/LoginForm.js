@@ -10,7 +10,7 @@ const LoginForm = (props) => {
 // use state for input field content
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
-const [login, setLogin] = useState(false);
+//const [login, setLogin] = useState(false);
 
 // sends information to server on clicking submit button or enter
 const handleSubmit = (e) => {
@@ -25,7 +25,7 @@ const handleSubmit = (e) => {
   }
   axios(configuration) // calls API
     .then((result) => {
-      setLogin(true);
+      props.isLoggedIn(true);
       setEmail(''); // resets input fields to empty string
       setPassword('');
       cookies.set('TOKEN', result.data.token, { // sets cookies: name of cookie, value and where its available
@@ -44,7 +44,7 @@ const toggleLoginForm = () => {
     setOpenLoginForm(!isOpenLoginForm);
     setEmail(''); // resets input fields to empty when closing popup
     setPassword('');
-    setLogin(false);
+    //setLogin(false);
   }
 
 // close active popup when clicking outside popup
@@ -140,10 +140,10 @@ useEffect(() => {
             </div>
 
             {/* display successful registration message */}
-            {login ? (
+            {props.islogin ? (
               <p className="">Erfolgreich angemeldet</p>
               ) : (
-                <p></p>
+                <p>Du bist nicht eingelogged</p>
             )}
             <div>
 
