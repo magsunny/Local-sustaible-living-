@@ -2,12 +2,15 @@ import { Link } from 'react-router-dom'
 import Button from '../Button.js';
 import LoginForm from './LoginForm.js'
 import RegisterForm from './RegisterForm';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 function UserNavbar(props) {
 
+  const token = cookies.get('TOKEN');
 
-
-     if (props.isLogin === true) {
+     if (token) {
         return (
             <div className="flex space-x-4 flex-1 items-center justify-center sm:items-stretch sm:justify-end">
 

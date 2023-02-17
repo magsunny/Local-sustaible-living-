@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import Button from "../Button";
 import './LoginFormTransition.css';
 import axios from 'axios';
-
+import Cookies from 'universal-cookie';
+const cookies = new Cookies(); // initalises universal-cookies
 
 const LoginForm = (props) => {
 
@@ -27,6 +28,10 @@ const handleSubmit = (e) => {
       setLogin(true);
       setEmail(''); // resets input fields to empty string
       setPassword('');
+      cookies.set('TOKEN', result.data.token, { // sets cookies: name of cookie, value and where its available
+        path: '/' // sets cookie available everywhere
+      })
+      window.location.href(''); // redirects
     })
     .catch((error) => {
       error = new Error();
