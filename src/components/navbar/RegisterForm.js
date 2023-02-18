@@ -176,9 +176,8 @@ const handleSubmit = (e) => {
                         <div className="flex flex-col items-center justify-center mt-4">
                         <Button 
                             type={'submit'}
-                            onClick={() => {
-                                // toggleRegisterForm();
-                                handleSubmit()}}
+                            onClick={(e) => {
+                                handleSubmit(e)}}
                             label={'Registrieren'}
                         />
 

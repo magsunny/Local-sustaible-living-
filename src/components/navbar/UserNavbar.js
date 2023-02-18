@@ -6,16 +6,16 @@ import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 
-function UserNavbar(props) {
+function UserNavbar({ isLogin, setLogin }) {
 
   const token = cookies.get('TOKEN');
 
   const logout = () => {
     cookies.remove('TOKEN', { path: ''});
-    props.isLoggedIn(false);
+    setLogin(false);
   }
 
-     if (props.isLogin === true) {
+     if (isLogin === true && token) {
         return (
             <div className="flex space-x-4 flex-1 items-center justify-center sm:items-stretch sm:justify-end">
 
@@ -45,13 +45,13 @@ function UserNavbar(props) {
 
 
               <LoginForm 
-                isLogin={props.isLogin}
-                isLoggedIn={props.isLoggedIn}
+               isLogin={isLogin}
+               setLogin={setLogin}
               />
 
               <RegisterForm
-                isLogin={props.isLogin}
-                isLoggedIn={props.isLoggedIn}
+               isLogin={isLogin}
+               setLogin={setLogin}
               />
 
           </div>

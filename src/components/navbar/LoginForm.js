@@ -5,12 +5,11 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies(); // initalises universal-cookies
 
-const LoginForm = (props) => {
+const LoginForm = ({ isLogin, setLogin }) => {
 
 // use state for input field content
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
-//const [login, setLogin] = useState(false);
 
 // sends information to server on clicking submit button or enter
 const handleSubmit = (e) => {
@@ -23,19 +22,27 @@ const handleSubmit = (e) => {
       password,
     },
   }
+  console.log(configuration);
+  console.log('handle submit beginning ' + isLogin)
   axios(configuration) // calls API
     .then((result) => {
-      props.isLoggedIn(true);
-      setEmail(''); // resets input fields to empty string
-      setPassword('');
       cookies.set('TOKEN', result.data.token, { // sets cookies: name of cookie, value and where its available
         path: '/' // sets cookie available everywhere
       })
+      console.log(result);
+      setLogin(true);
+      setEmail(''); // resets input fields to empty string
+      setPassword('');
       window.location.href(''); // redirects
     })
     .catch((error) => {
       error = new Error();
     })
+}
+
+const logout = () => {
+  cookies.remove('TOKEN', { path: ''});
+  setLogin(false);
 }
 
 // set pop up active or innactive
@@ -44,29 +51,24 @@ const toggleLoginForm = () => {
     setOpenLoginForm(!isOpenLoginForm);
     setEmail(''); // resets input fields to empty when closing popup
     setPassword('');
-    //setLogin(false);
   }
 
 // close active popup when clicking outside popup
 const loginFormRef = useRef(null);
 useEffect(() => {
-
   const pageClickEvent = (e) => {
     if (loginFormRef.current !== null && !loginFormRef.current.contains(e.target)) {
         setOpenLoginForm(!isOpenLoginForm);
      }
     };
-
   setTimeout (function() {
     if (isOpenLoginForm) {
       window.addEventListener('click', pageClickEvent)
     }}, 100);
-
     return () => {
       window.removeEventListener('click', pageClickEvent);
     }
-
-}, [isOpenLoginForm]);
+  }, [isOpenLoginForm]);
 
   return (
 
@@ -140,7 +142,7 @@ useEffect(() => {
             </div>
 
             {/* display successful registration message */}
-            {props.islogin ? (
+            {isLogin ? (
               <p className="">Erfolgreich angemeldet</p>
               ) : (
                 <p>Du bist nicht eingelogged</p>
@@ -150,10 +152,8 @@ useEffect(() => {
               {/* Login Button */}
               <Button
                 type={'submit'}
-                onClick={() => {
-                  // toggleLoginForm()
-                  // props.isLoggedIn()
-                  handleSubmit()
+                onClick={(e) => {
+                  handleSubmit(e)
                 }}
                 label={'Login'}
               />
@@ -161,7 +161,7 @@ useEffect(() => {
               {/* close button */}
               <div className="text-sm text-gray-600 mb-4 mt-2">
                   <span 
-                    onClick={toggleLoginForm}
+                    onClick={logout}
                     className="flex items-center justify-center cursor-pointer hover:text-gray-900">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="flex items-center justify-center w-5 h-5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

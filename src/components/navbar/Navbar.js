@@ -3,9 +3,6 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import UserNavbar from './UserNavbar';
 import {useState } from 'react';
-import Cookies from 'universal-cookie';
-
-const cookies = new Cookies();
 
 
 const navigation = [
@@ -23,14 +20,7 @@ function classNames(...classes) {
 
 export default function Navbar () {
 
-  const token = cookies.get('TOKEN');
-
   const [isLogin, setLogin] = useState(false);
-
-  const isLoggedIn = () => {
-    if (token) {
-    setLogin(!isLogin) }
-  };
 
   return (
     <Disclosure as="nav" className="bg-emerald-200">
@@ -71,8 +61,8 @@ export default function Navbar () {
 
                {/* Login menu */}
               <UserNavbar 
-               isLoggedIn={isLoggedIn}
                isLogin={isLogin}
+               setLogin={setLogin}
               />
 
             </div>
