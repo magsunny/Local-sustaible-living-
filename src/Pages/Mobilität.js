@@ -7,7 +7,7 @@ const Content = [
   href: "https://hamburg.adfc.de/fileadmin/Gliederungen/Pedale/hamburg/_processed_/d/1/csm_20111022ud_IMG_4121_Fahrradstr_Brookkehre_3cc1ad5bb8.jpg", 
   alt: "Fahrradfahren in Hamburg.",
   title: "Fahrradfahren in Hamburg",
-  text: "Mit dem Fahrrad durch Hamburg voranzukommen wird immer einfacher. Dieses Verkehrsmittel ist deshalb optimal, weil es umweldfreundlich, emssionsfrei, lärm-und platzsparend ist, und zusätzlich auch die Gesundheit fördert. Wer nicht mit purer Muskelkraft voran kommen möchte, kann inzwischen auch mit elektrischer Unterstützung ein wenig müheloser durch die schönste Stadt der Welt radlen. Die Stadt Hamburg fördert diese Mobilitätsart durch den Ausbau von Fahrradstraßen und Velorouten.",
+  text: "Mit dem Fahrrad durch Hamburg voranzukommen wird immer einfacher. Dieses Verkehrsmittel ist deshalb optimal, weil es umweltfreundlich, emssionsfrei, lärm-und platzsparend ist, und zusätzlich auch die Gesundheit fördert. Wer nicht mit purer Muskelkraft voran kommen möchte, kann inzwischen auch mit elektrischer Unterstützung ein wenig müheloser durch die schönste Stadt der Welt radeln. Die Stadt Hamburg fördert diese Mobilitätsart durch den Ausbau von Fahrradstraßen und Velorouten.",
 },
 {
   id:2,
@@ -22,9 +22,7 @@ const Content = [
   alt: "Wenn es doch das eigene E-Mobil sein soll.",
   title: "Elektromobilität",
   text:"Kannst Du nicht auf ein eigenes Auto verzichten. Dann ist die nachhaltige Variante ein Elektroauto. Für das eigene E-Auto finden sich in allen Stadtteilen Hamburgs eine wachsende Anzahl von Ladestationen.",
-  listItem: [
-    'eins', 'zwei', 'drei'
-  ]
+  
 },
 {
   id:4,
@@ -32,9 +30,7 @@ const Content = [
   alt: "Privates Sharing von fahrbaren Untersätzen.",
   title: "Privates Sharing",
   text: "Private Ridesharing Gruppen oder gemeinsame Nutzung von Lastenrädern, E-Autos in der Nachbarschaft oder im Freundeskreis ermöglichen es auch den Menschen, die sich diese Mobilitätsformen nicht selber anschaffen wollen, Zugang zu den alternativen Mobilitätsformen zu haben. Menschen, die ihren eigenen fahrbaren Untersatz nicht täglich nutzen, sollten sich vernetzen und diese für ihren Freundeskreis nutzbar machen. Neben privaten Sharing Initiativen gibt es modellhafte Mobilitätskonzepte in neuentstandenen Vierteln, wie z.B. dem Pergolenviertel in Barmbek oder in Iserbrook, die diese Idee bereits umsetzen.",
-  listItem: [
-    'one', 'two', 'tree', 'four', 'five'
-  ]
+  
 },
 
 ]
@@ -54,7 +50,7 @@ const Mobilität = () => {
                   {Content.map((item)=>(
                     <div className="border-t border-gray-200 pt-4 flex flex-col justify-between">
                       <div><dt className="font-medium text-gray-900">{item.title}</dt></div>
-                      <div><dd className="mt-2 text-sm text-gray-500 hover:text-gray-700 visited:text-gray-300"><a href ='https://www.hamburg.de/fahrradfahren-in-hamburg/16219442/radnetze/'target='_blank' rel="noreferrer">{item.text}</a></dd></div>
+                      <div><dd className="mt-2 text-sm text-gray-500">{item.text}</dd></div>
                       {item.listItem?.map((element) => (
                         <div>
                           <p className='mt-5'>{element}</p>

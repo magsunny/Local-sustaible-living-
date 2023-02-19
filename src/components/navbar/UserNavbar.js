@@ -2,13 +2,32 @@ import { Link } from 'react-router-dom'
 import Button from '../Button.js';
 import LoginForm from './LoginForm.js'
 import RegisterForm from './RegisterForm';
-
-function UserNavbar(props) {
-
+import Cookies from 'universal-cookie';
 
 
-     if (props.isLogin === true) {
+const community = [
+  { name: 'Community', href: '/community', current: false },
+]
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
+const cookies = new Cookies();
+
+function UserNavbar({ isLogin, setLogin }) {
+
+  const token = cookies.get('TOKEN');
+
+  const logout = () => {
+    cookies.remove('TOKEN', { path: ''});
+    setLogin(false);
+  }
+
+     if (isLogin === true && token) {
         return (
+
+
             <div className="flex space-x-4 flex-1 items-center justify-center sm:items-stretch sm:justify-end">
 
               <Link to="">
@@ -19,31 +38,61 @@ function UserNavbar(props) {
                   alt="User Foto"
                 />
                 </button>
-              </Link>
+                </Link>
 
+
+             
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div className="hidden sm:ml-6 sm:block">
+                  <div className="flex space-x-4">
+
+             
+                      <Link to="/community">
+                      </Link>
+                      
+                      {community.map((item) => (
+                      <Link
+                        key={item.name}
+                        to={item.href}
+                        className={classNames(
+                          item.current ? 'bg-emerald-900 text-white' : 'text-black-300 hover:bg-emerald-700 hover:text-white',
+                          'px-3 py-2 rounded-md text-sm font-medium'
+                        )}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+
+                   </div>
+                </div>
+              </div>
+
+                         
               <Link to="">
               <Button
                 type={'button'}
-                onClick={props.isLoggedIn}
+                onClick={logout}
                 label={'Logout'}
               />
               </Link>
-
-             </div>
+       </div>
+            
         );}
+
+       
      else {
         return (
             <div className="flex space-x-4 flex-1 items-center justify-center sm:items-stretch sm:justify-end">
 
 
               <LoginForm 
-                isLogin={props.isLogin}
-                isLoggedIn={props.isLoggedIn}
+               isLogin={isLogin}
+               setLogin={setLogin}
               />
 
               <RegisterForm
-                isLogin={props.isLogin}
-                isLoggedIn={props.isLoggedIn}
+               isLogin={isLogin}
+               setLogin={setLogin}
               />
 
           </div>

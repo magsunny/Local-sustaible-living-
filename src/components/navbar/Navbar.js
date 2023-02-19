@@ -12,20 +12,16 @@ const navigation = [
   { name: 'Fashion', href: '/fashion', current: false },
   { name: 'Mobilität', href: '/mobilität', current: false },
   { name: 'Wohnen', href: '/wohnen', current: false },
+
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar (props) {
-
+export default function Navbar () {
 
   const [isLogin, setLogin] = useState(false);
-
-  const isLoggedIn = () => {
-    setLogin(!isLogin);
-  }
 
   return (
     <Disclosure as="nav" className="bg-emerald-200">
@@ -66,8 +62,8 @@ export default function Navbar (props) {
 
                {/* Login menu */}
               <UserNavbar 
-               isLoggedIn={isLoggedIn}
                isLogin={isLogin}
+               setLogin={setLogin}
               />
 
             </div>

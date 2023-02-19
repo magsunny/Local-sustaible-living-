@@ -14,7 +14,6 @@ export const TechLabs = [
   export const AboutUs = [
     { name: "Git Repo", link: "https://github.com/magsunny/Local-sustaible-living-" },
     { name: "Medium", link: "https://medium.com/@TechLabs_Hamburg" },
-    { name: "Pictures", link: "#" },
   
   ];
   export const Support = [
