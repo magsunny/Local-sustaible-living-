@@ -6,6 +6,7 @@ const Content = [
   alt: "Das Cradle to Cradle Prinzip.",
   title: "Das Cradle to Cradle Prinzip",
   text: "Cradle to Cradle (C2C) ist ein Konzept für nachhaltige Produktentwicklung und -herstellung, das von Michael Braungart und William McDonough entwickelt wurde. Es geht darum, Produkte und Produktionsprozesse so zu gestalten, dass sie am Ende ihres Lebenszyklus recycelt oder als natürliche Ressource wiederverwendet werden können, anstatt sie als Abfall zu entsorgen. C2C zielt darauf ab, eine positive Umweltbilanz und eine Gesellschaft zu schaffen, die sich in einem Zustand des kontinuierlichen Wohlstands befindet. Es gibt bereits einige Klamottenhersteller, die nach Cradle to Cradle zertifiziert sind. Vielleicht ist ja auch etwas für dich dabei?",
+ 
 },
 {
   id:2,
@@ -13,6 +14,7 @@ const Content = [
   alt: "Nachhaltigkeits Statement",
   title: "Nutz, was du hast",
   text: "Eine der besten Möglichkeiten, um nachhaltig zu sein, ist es, gar nicht erst etwas Neues zu kaufen, sondern das zu nutzen, was man bereits besitzt. Jedes neue Produkt erfordert Ressourcen, sowie die Herstellung ist oft sehr ressourcen- und energieintensiv und verursacht Emissionen. Eine neue Jeans beispielsweise benötigt in der Produktion rund 8.000 Liter Wasser. In jedem neuen Smartphone stecken Konflikt-Rohstoffe, wie Coltan, für das oft Kinder in Minen schuften. Je länger du nutzt, was du bereits besitzt, desto weniger Ressourcen und Energie verschwendest du. Eine weitere Möglichkeit ist es, Dinge zu reparieren, anstatt sie wegzuwerfen. Wenn man etwas selbst reparieren will, gibt es im Internet hilfreiche Anleitungen, oder Schneider:innen die dich dabei unterstützen können.",
+ 
 },
 {
   id:3,
@@ -36,7 +38,14 @@ const Content = [
 },
 
 ]
+const externalLinks = [
 
+  { name: 'Cradle to Cradle Certified Kleidung und Textilien', href: 'https://c2ccertified.org/certified-products-and-materials?products_and_materials_name_asc%5BrefinementList%5D%5Btopic.title%5D%5B0%5D=Textiles%20Apparel%20and%20Footwear'},
+  { name: 'Lerne zusammen mit anderen das Stricken', href: 'https://strick-stick-hamburg.de/kurse/'},
+  { name: 'Gib deinen ungenutzten Klamotten eine zweite Chance und nutze die kostenlose Altkleider-Abholung', href: 'https://www.recyclehero.de/altkleider?utm_term=altkleider+hamburg&utm_campaign=Search+Altkleider&utm_source=adwords&utm_medium=ppc&hsa_acc=5498141449&hsa_cam=17478823380&hsa_grp=139333325682&hsa_ad=603593562390&hsa_src=g&hsa_tgt=kwd-299804918093&hsa_kw=altkleider+hamburg&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAiAuaKfBhBtEiwAht6H7w4orQ7NFBMi9uZU479osjcpHTnHFq7AsIhY0q2ZvfpjmhhTEO7ZkxoCGrQQAvD_BwE'},
+  { name: 'Finde die besten Second Hand Läden in Hamburg', href: 'https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwitzpOd5o_9AhXkVvEDHcrAAlAQFnoECA0QAw&url=https%3A%2F%2Fbridgeandtunnel.de%2Fsecondhand-hamburg%2F&usg=AOvVaw2D7LY0GwbUqYQyuSL5yY1a'},
+  { name: 'Fair Fashion in Hamburg: Brands die nachhaltige Mode anbieten', href: 'https://hamburg.mitvergnuegen.com/2021/fair-fashion-in-hamburg-nachhaltige-mode/'},
+]
 
 const Fashion = () => {
   
@@ -52,7 +61,11 @@ const Fashion = () => {
                   {Content.map((item)=>(
                     <div className="border-t border-gray-200 pt-4 flex flex-col justify-between">
                       <div><dt className="font-medium text-gray-900">{item.title}</dt></div>
+
+                      <p className='mt-5 text-gray-500'>{item.text}</p>
+
                       <div><dd className="mt-2 text-sm text-gray-500">{item.text}</dd></div>
+
                       {item.listItem?.map((element) => (
                         <div>
                           <p className='mt-5 text-gray-500'>{element}</p>
@@ -65,7 +78,30 @@ const Fashion = () => {
                 </div>
               </div>
             </div>
+
           </div> 
+          <div className="bg-white">
+            <div className="mx-auto grid grid-cols-1 items-center gap-y-16 gap-x-8 px-4 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8 lg:grid-cols-1">
+              <div>
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Nützliche Links für dich!</h2>
+                <ul>
+                  {externalLinks.map((link) => (
+                    <li key={link.name}>
+                      <a
+                        className="text-gray-400 hover:text-teal-400 duration-300
+                        text-sm cursor-pointer leading-6"
+                        href={link.href}
+                        target='_blank'
+                        rel='noreferrer'
+                      >
+                        {link.name}
+                      </a>
+                     </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </>  
     )
 };
