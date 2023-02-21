@@ -12,7 +12,7 @@ const [isRegister, setRegister] = useState(false);
 
 // sends information to server on clicking submit button or enter
 const handleSubmit = (e) => {
-  e.preventDefault(); // prevents refreshing whole page
+  // e.preventDefault(); // prevents refreshing whole page
   const configuration = { //data contains request body for backend
     method: 'post',
     url: 'http://localhost:3000/newsletter', // endpoint 
