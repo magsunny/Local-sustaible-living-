@@ -7,22 +7,28 @@ const LoginNewsletter= (props) => {
 
 // use state for input field content
 const [newmail, setNewsletter] = useState('');
+const [isRegister, setRegister] = useState(false);
 
 
 // sends information to server on clicking submit button or enter
 const handleSubmit = (e) => {
- // e.preventDefault(); // prevents refreshing whole page
+  // e.preventDefault(); // prevents refreshing whole page
   const configuration = { //data contains request body for backend
     method: 'post',
     url: 'http://localhost:3000/newsletter', // endpoint 
     data: {
      newmail,
     },
-  }
+  };
 
 axios(configuration) // calls API
 .then((result) => {
   setNewsletter(''); // resets input fields to empty string
+  setRegister(true);
+})
+.catch((error) => {
+  error = new Error();
+  console.log(error);
 })
 }
 
@@ -43,9 +49,15 @@ return (
            sm:w-72 w-full sm:mr-5 mr-1 lg:mb-0 mb-4 py-2.5 rounded px-2 focus:outline-none"
           />
 
+          {isRegister ? (
+            <p>Anmeldung erfolgreich</p>
+            ) : (
+            <p>Noch nicht angemeldet</p>
+          )}
+
 <Button
         type={'submit'}
-        onClick={handleSubmit()
+        onClick={(e) => handleSubmit(e)
              }
         label={'Hier zum Newsletter anmelden'}
     />
