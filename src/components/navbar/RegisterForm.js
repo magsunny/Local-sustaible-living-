@@ -81,7 +81,7 @@ const handleSubmit = (e) => {
         {/* making popup visible with css */}
         <div 
             ref={registerFormRef} 
-            className={`px-4 absolute rigth-0 top-16 w-80 flex min-h-full items-center justify-center z-10 bg-slate-100 text-center rounded-xl shadow-xl
+            className={`px-4 absolute right-0 top-16 w-80 flex min-h-full items-center justify-center z-10 bg-slate-100 text-center rounded-xl shadow-xl
                   transition ${isOpenRegisterForm ? 'active' : 'inactive'}`}
         >
             <div className="w-full max-w-md space-y-4">
