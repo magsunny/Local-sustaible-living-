@@ -59,19 +59,17 @@ const Fashion = () => {
                   <p className="mt-4 text-gray-500">Weißt du schon, was "Fast Fashion" eigentlich bedeutet?  Fast Fashion bezieht sich auf die schnelle Herstellung und Produktion von Mode, die oft billig und trendorientiert ist. Diese Art von Mode wird oft in großen Mengen produziert und zu niedrigen Preisen verkauft, um die schnell wechselnden Trends der Modewelt zu bedienen. Fast Fashion-Unternehmen produzieren oft in Entwicklungsländern, um Kosten zu sparen und schnell auf die neuesten Trends reagieren zu können. Fast Fashion hat jedoch eine negative Auswirkung auf die Umwelt und die Arbeitsbedingungen der Menschen, die in der Produktion tätig sind. <br></br><br></br>Was können wir also tun, wenn wir nachhaltiger leben möchten? Wir befassen uns mit dem Thema "Nachhaltige Mode". <br></br><br></br>Nachhaltige Mode bezieht sich auf die Herstellung und Produktion von Kleidung, Schuhen und Accessoires, bei der die Umweltbelastung reduziert und die sozialen Auswirkungen verbessert werden. Dies kann durch die Verwendung von natürlichen und recycleten Materialien, die Vermeidung von Chemikalien, die Verbesserung der Arbeitsbedingungen in der Produktion und die Verlängerung der Lebensdauer von Produkten erreicht werden. Nachhaltige Mode kann auch durch die Unterstützung von lokalen und ethisch arbeitenden Unternehmen sowie durch die Verwendung von transparenten und nachvollziehbaren Produktionsmethoden gestärkt werden.</p>
                   <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
                   {Content.map((item)=>(
-                    <div className="border-t border-gray-200 pt-4 flex flex-col justify-between">
-                      <div><dt className="font-medium text-gray-900">{item.title}</dt></div>
+                    <div key={item.id} className="border-t border-gray-200 pt-4 flex flex-col justify-between">
+                      <dt className="font-medium text-gray-900">{item.title}</dt>
 
                       <p className='mt-5 text-gray-500'>{item.text}</p>
 
-                      <div><dd className="mt-2 text-sm text-gray-500">{item.text}</dd></div>
+                      <dd className="mt-2 text-sm text-gray-500">{item.text}</dd>
 
                       {item.listItem?.map((element) => (
-                        <div>
-                          <p className='mt-5 text-gray-500'>{element}</p>
-                        </div>
+                          <p key={element} className='mt-5 text-gray-500'>{element}</p>
                       ))}
-                      <div><img src={item.href} alt={item.alt} className="rounded-lg bg-gray-100 w-full h-80 object-cover mt-16"/></div>
+                      <img src={item.href} alt={item.alt} className="rounded-lg bg-gray-100 w-full h-80 object-cover mt-16"/>
                     </div>
                   ))}
                   </dl>

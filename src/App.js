@@ -1,5 +1,4 @@
 import {React} from 'react';
-import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Navbar from './components/navbar/Navbar'; 
 import Home from './Pages/Home';
@@ -33,10 +32,9 @@ function App() {
         <Route path='/community' element={<Community/>}/>
         </Routes>
      </BrowserRouter>
-     <div>
-      
+
       <Footer />
-    </div>
+  
      </>
 
   );
