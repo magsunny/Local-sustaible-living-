@@ -14,7 +14,7 @@ const Footer = () => {
           className="lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold
          md:w-2/5"
         >
-          <span className="text-teal-100">Happy </span> to start your sustainable living
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-blue-500">Happy </span> to start your sustainable living
         </h1>
           
   

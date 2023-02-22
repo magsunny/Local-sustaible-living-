@@ -7,11 +7,11 @@ import {useState } from 'react';
 
 const navigation = [
 
-  { name: 'Home', href: '/', current: true },
-  { name: 'Ernährung', href: '/ernährung', current: false },
-  { name: 'Fashion', href: '/fashion', current: false },
-  { name: 'Mobilität', href: '/mobilität', current: false },
-  { name: 'Wohnen', href: '/wohnen', current: false },
+  { name: 'Home', href: '/' },
+  { name: 'Ernährung', href: '/ernährung' },
+  { name: 'Fashion', href: '/fashion' },
+  { name: 'Mobilität', href: '/mobilität' },
+  { name: 'Wohnen', href: '/wohnen' },
 
 ]
 

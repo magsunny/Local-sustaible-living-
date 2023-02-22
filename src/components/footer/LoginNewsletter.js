@@ -69,4 +69,3 @@ const LoginNewsletter = (props) => {
   )
 }
 export default LoginNewsletter
-

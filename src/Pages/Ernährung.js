@@ -44,17 +44,17 @@ const Ernährung = () => {
                 <h1> Ernährung </h1>
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Tipps für eine nachhaltige Ernährung</h2>
                 <p className="mt-4 text-gray-500">Zur nachhaltigen Ernährung gehört nicht nur die Frage was man isst, sondern auch der Umgang mit Lebensmitteln.</p>
-                <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+                <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
 
                 {Content.map((item,id)=>(
-                  <div className="border-t border-gray-200 pt-4">
+                  <div key={id} className="border-t border-gray-200 pt-4">
                     <dt className="font-medium text-gray-900">{item.title}</dt>
-                    <dd className="mt-2 text-sm text-gray-500 hover:text-gray-700 visited:text-gray-300 h-80 sm:h-96"><a target='_blank' rel="noreferrer"> {item.text} </a></dd>
+                    <dd className="mt-2 text-sm text-gray-500 h-80 sm:h-96">{item.text}</dd>
                     <img src={item.href} alt={item.alt} className="rounded-lg bg-gray-100 w-full h-80 object-cover mt-16"/>
                   </div>
                 ))}
 
-                </dl>
+                </div>
               </div>
             </div>
           </div>
