@@ -22,14 +22,11 @@ const handleSubmit = (e) => {
       password,
     },
   }
-  console.log(configuration);
-  console.log('handle submit beginning ' + isLogin)
   axios(configuration) // calls API
     .then((result) => {
       cookies.set('TOKEN', result.data.token, { // sets cookies: name of cookie, value and where its available
         path: '/' // sets cookie available everywhere
       })
-      console.log(result);
       setLogin(true);
       setEmail(''); // resets input fields to empty string
       setPassword('');
