@@ -8,7 +8,7 @@ const LoginNewsletter = (props) => {
 
   // use state for input field content
   const [newmail, setNewsletter] = useState('');
-  //const [isRegister, setRegister] = useState(false);
+  // const [isRegister, setRegister] = useState(false);
 
 
   // sends information to server on clicking submit button or enter
@@ -24,14 +24,14 @@ const LoginNewsletter = (props) => {
     axios(configuration) // calls API
       .then((result) => {
         setNewsletter(''); // resets input fields to empty string
-     
-//  setRegister(true);
-//})
-//.catch((error) => {
-//  error = new Error();
-//  console.log(error);
-})
-}
+
+        // setRegister(true);
+      })
+      .catch((error) => {
+        error = new Error();
+        console.log(error);
+      })
+  }
 
 
 
@@ -41,7 +41,7 @@ const LoginNewsletter = (props) => {
 
       <input
         type="email"
-        Name="Mailadresse"
+        name="Mailadresse"
         placeholder="Mailadresse"
         value={newmail}
         onChange={(e) => setNewsletter(e.target.value)}
@@ -54,11 +54,11 @@ const LoginNewsletter = (props) => {
         type={'submit'}
         onClick={(e) => handleSubmit()}
 
-      //    {isRegister ? (
-      //      <p>Anmeldung erfolgreich</p>
-      //      ) : (
-      //      <p>Noch nicht angemeldet</p>
-      //    )}
+        // {isRegister ? (
+        //   <p>Anmeldung erfolgreich</p>
+        // ) : (
+        //   <p>Noch nicht angemeldet</p>
+        // )}
 
 
         label={'Hier zum Newsletter anmelden'}
