@@ -48,22 +48,24 @@ const Mobilität = () => {
               <p className="mt-4 text-gray-500">Wachsende Städte wie Hamburg müssen Mobiliät neu denken. Abgesehen von neuen Antrieben der Autos und Busse auf Hamburgs Straßen, brauchen wir auch andere Mobilitätskonzepte, denn der Raum den Individualverkehr mit PkWs einnimmt, reduziert mögliche Freiräume für die Bürger der Stadt.</p>
               <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
                 {Content.map((item) => (
-                  <div className="border-t border-gray-200 pt-4 flex flex-col justify-between">
+                  <div key={item.id} className="border-t border-gray-200 pt-4 flex flex-col justify-between">
                     <div><dt className="font-medium text-gray-900">{item.title}</dt></div>
                     <div><dd className="mt-2 text-sm text-gray-500">{item.text}</dd></div>
-                    {item.listItem?.map((element) => (
-                      <div>
-                        <p className='mt-5'>{element}</p>
-                      </div>
-                    ))}
-                    <div><img src={item.href} alt={item.alt} className="rounded-lg bg-gray-100 w-full h-80 object-cover mt-16" /></div>
+                    {
+                      item.listItem?.map((element) => (
+                        <div>
+                          <p className='mt-5'>{element}</p>
+                        </div>
+                      ))
+                    }
+                    < div > <img src={item.href} alt={item.alt} className="rounded-lg bg-gray-100 w-full h-80 object-cover mt-16" /></div>
                   </div>
                 ))}
               </dl>
             </div>
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
 
 
       <div>
