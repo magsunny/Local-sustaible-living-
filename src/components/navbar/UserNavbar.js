@@ -3,7 +3,7 @@ import Button from '../Button.js';
 import LoginForm from './LoginForm.js'
 import RegisterForm from './RegisterForm';
 import Cookies from 'universal-cookie';
-
+import {useEffect } from 'react';
 
 const community = [
   { name: 'Community', href: '/community', current: false },
@@ -20,17 +20,24 @@ function UserNavbar({ isLogin, setLogin }) {
   // gets Token
   const token = cookies.get('TOKEN');
 
+  // checks after reload if user is logged in
+  useEffect(() => {
+    if(token) {
+      setLogin(true);
+    }
+  })
+
   // logout 
   const logout = () => {
-    cookies.remove('TOKEN', { path: '/home'});
+    cookies.remove('TOKEN', { path: '/'});
     setLogin(false);
+    window.location.href='/';
   }
 
     // checks if user is logged in with useState and token
      if (isLogin === true && token) {
         return (
-
-
+          
             <div className="flex space-x-4 flex-1 items-center justify-center sm:items-stretch sm:justify-end">
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
                 <div className="hidden sm:ml-6 sm:block">
