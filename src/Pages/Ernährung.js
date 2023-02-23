@@ -33,6 +33,13 @@ const Content = [{
 },
 
 ]
+const externalLinks = [
+
+  { name: 'Unverpackt einkaufen in Hamburg', href: 'https://www.hamburg.de/unverpackt/'},
+  { name: 'Wochenmärkte in Hamburg', href: 'https://www.hamburg.de/wochenmarkt-hamburg/1538392/wochenmarkt-highlights/'},
+  { name: 'Lebensmittel Retten mit Foodsharing', href: 'https://foodsharing.de/'},
+  { name: 'Lebensmittel retten mit TooGoodToGo', href: 'https://toogoodtogo.de'},
+]
 
 const Ernährung = () => {
   
@@ -44,7 +51,7 @@ const Ernährung = () => {
               <div>
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Tipps für eine nachhaltige Ernährung</h2>
                 <p className="mt-4 text-gray-500">Zur nachhaltigen Ernährung gehört nicht nur die Frage was man isst, sondern auch der Umgang mit Lebensmitteln.</p>
-                <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+                <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
 
                 {Content.map((item,id)=>(
                   <div key={id} className="border-t border-gray-200 pt-4">
@@ -54,11 +61,35 @@ const Ernährung = () => {
                   </div>
                 ))}
 
-                </div>
+                </dl>
               </div>
             </div>
           </div>
         </div> 
+
+        <div className="bg-white">
+            <div className="mx-auto grid grid-cols-1 items-center gap-y-16 gap-x-8 px-4 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8 lg:grid-cols-1">
+              <div>
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Nützliche Links zum Thema Ernährung</h2>
+              <p>Du suchst nach Unverpackt-Läden in Hamburg oder willst wissen wann der nächste Wochenmarkt stattfindet?</p>
+                <ul>
+                  {externalLinks.map((link) => (
+                    <li key={link.name}>
+                      <a
+                        className="text-gray-400 hover:text-teal-400 duration-300
+                        text-sm cursor-pointer leading-6"
+                        href={link.href}
+                        target='_blank'
+                        rel='noreferrer'
+                      >
+                        {link.name}
+                      </a>
+                     </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
       </>  
   )
 };
