@@ -153,7 +153,7 @@ const handleSubmit = (e) => {
                                 Passwort
                             </label>
                             <input
-                                    id="password"
+                                    id="registerpassword"
                                     name="password"
                                     type="password"
                                     autoComplete="password"

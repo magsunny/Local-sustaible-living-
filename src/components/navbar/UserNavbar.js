@@ -17,39 +17,26 @@ const cookies = new Cookies();
 
 function UserNavbar({ isLogin, setLogin }) {
 
+  // gets Token
   const token = cookies.get('TOKEN');
 
+  // logout 
   const logout = () => {
-    cookies.remove('TOKEN', { path: ''});
+    cookies.remove('TOKEN', { path: '/home'});
     setLogin(false);
   }
 
+    // checks if user is logged in with useState and token
      if (isLogin === true && token) {
         return (
 
 
             <div className="flex space-x-4 flex-1 items-center justify-center sm:items-stretch sm:justify-end">
-
-              <Link to="">
-                <button type="button" className="flex rounded-full bg-white border-solid border-2 border-white text-sm focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1 ">
-                 <img 
-                  className="h-8 w-8 rounded-full"
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Phenotype_portrait_02.jpg/440px-Phenotype_portrait_02.jpg"
-                  alt="User Foto"
-                />
-                </button>
-                </Link>
-
-
-             
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-
              
-                      <Link to="/community">
-                      </Link>
-                      
+                      {/* community button */}
                       {community.map((item) => (
                       <Link
                         key={item.name}
@@ -63,18 +50,27 @@ function UserNavbar({ isLogin, setLogin }) {
                       </Link>
                     ))}
 
+                      {/* profile button -- not ready to use */}
+                      <Link to="">
+                        <button type="button" className="flex rounded-full bg-white border-solid border-2 border-white text-sm focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1 ">
+                        <img 
+                          className="h-8 w-8 rounded-full"
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Phenotype_portrait_02.jpg/440px-Phenotype_portrait_02.jpg"
+                          alt="User Foto"
+                        />
+                        </button>
+                      </Link>
+
                    </div>
                 </div>
               </div>
 
-                         
-              <Link to="">
+              {/* logout button  */}
               <Button
                 type={'button'}
                 onClick={logout}
                 label={'Logout'}
               />
-              </Link>
        </div>
             
         );}
