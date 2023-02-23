@@ -3,36 +3,31 @@ import Button from "../Button";
 import axios from 'axios';
 
 
-const LoginNewsletter = (props) => {
+export default function LoginNewsletter() {
 
-
-  // use state for input field content
   const [newmail, setNewsletter] = useState('');
-  // const [isRegister, setRegister] = useState(false);
 
-
-  // sends information to server on clicking submit button or enter
   const handleSubmit = (e) => {
-    //e.preventDefault(); // prevents refreshing whole page
-    const configuration = { //data contains request body for backend
+
+    const configuration = {
       method: 'post',
-      url: 'http://localhost:3000/newsletter', // endpoint 
+      url: 'http://localhost:3000/newsletter',
       data: {
         newmail,
       },
-    }
+      onSubmit: setNewsletter(''),
+    };
+
     axios(configuration) // calls API
       .then((result) => {
         setNewsletter(''); // resets input fields to empty string
-
-        // setRegister(true);
       })
       .catch((error) => {
         error = new Error();
-        console.log(error);
-      })
-  }
+        console.log('error');
+      });
 
+  }
 
 
   return (
@@ -53,19 +48,11 @@ const LoginNewsletter = (props) => {
       <Button
         type={'submit'}
         onClick={(e) => handleSubmit()}
-
-        // {isRegister ? (
-        //   <p>Anmeldung erfolgreich</p>
-        // ) : (
-        //   <p>Noch nicht angemeldet</p>
-        // )}
-
-
         label={'Hier zum Newsletter anmelden'}
       />
 
     </div>
 
   )
+
 }
-export default LoginNewsletter
