@@ -9,8 +9,6 @@ module.exports = {
         '300':'3',
       }
 
-      
-
     },
   },
   plugins: [],
