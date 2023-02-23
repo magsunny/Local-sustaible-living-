@@ -3,6 +3,7 @@ import Button from "../Button";
 import './LoginFormTransition.css';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import { useNavigate } from "react-router-dom";
 const cookies = new Cookies(); // initalises universal-cookies
 
 const LoginForm = ({ isLogin, setLogin }) => {
@@ -10,6 +11,7 @@ const LoginForm = ({ isLogin, setLogin }) => {
 // use state for input field content
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
+const navigate = useNavigate();
 
 // sends information to server on clicking submit button or enter
 const handleSubmit = (e) => {
@@ -30,7 +32,7 @@ const handleSubmit = (e) => {
       setLogin(true);
       setEmail(''); // resets input fields to empty string
       setPassword('');
-      window.location.href(''); // redirects
+      navigate('/community'); // redirects
     })
     .catch((error) => {
       error = new Error();
@@ -132,13 +134,6 @@ useEffect(() => {
                 />
               </div>
             </div>
-
-            {/* display successful registration message */}
-            {isLogin ? (
-              <p className="">Erfolgreich angemeldet</p>
-              ) : (
-                <p>Du bist nicht eingelogged</p>
-            )}
             <div>
 
               {/* Login Button */}
