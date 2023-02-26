@@ -29,10 +29,10 @@ const Content = [
   },
   {
     id: 4,
-    href: "https://images.unsplash.com/photo-1603001088226-17762b4ea534?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c3VzdGFpbmFibGUlMjBmYXNoaW9ufGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+    href: "https://image.brigitte.de/13102236/t/0w/v3/w480/r1.5/-/nachhaltig-im-haushalt.jpg",
     alt: "Wohnen",
     title: "Wohnen",
-    text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    text: "Wie können wir Nachhaltigkeit in unserem Alltag einbauen? Insbesondere in unserem Zuhause lässt es sich mit diesen Tipps nachhaltig leben. Der Bereich Wohnen und Haushalt ist deshalb so relevant für den nachhaltigen Konsum, weil er mit 38 Prozent einen maßgeblichen Anteil der CO2-Emissionen des privaten Konsums innehat. Auch wenn Gebäude und Geräte immer energieeffizienter konstruiert werden, sinkt der durchschnittliche Pro-Kopf-CO2-Verbrauch dennoch nur um 0,5 Prozent im Jahr. Somit besteht im Bereich des Wohnens und des Haushalts ein hoher Bedarf an Optimierungsmaßnahmen für einen nachhaltigen Konsum.",
     navigation: { name: 'Clicke hier um zur Wohnenseite zu wechseln', href: '/wohnen', current: false },
   },
 
